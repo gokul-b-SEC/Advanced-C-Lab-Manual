@@ -16,105 +16,63 @@ Algorithm:
 Program:
 
 ```
-EXP NO 26: C PROGRAM TO DISPLAY STACK ELEMENTS USING LINKED LIST. Aim: To write a C program to display stack elements using linked list.
+#include <stdio.h>
+#include <stdlib.h>
 
-Algorithm:
+struct Node
+{
+    int data;
+    struct Node *next;
+};
 
-Define a structure Node with two members: data to store the integer value and next to point to the next node in the linked list.
-Declare a global variable head representing the starting node of the linked list.
-Define a function display to print the elements of the linked list.
-Declare a pointer p and initialize it with the head of the linked list.
-Use a while loop to traverse the linked list:
-Print the data of the current node.
-Move to the next node using the next pointer.
-Program:
+struct Node *head = NULL;
 
-//type your code here
+void display()
+{
+    struct Node *p = head;
 
-Output:
+    if (p == NULL)
+    {
+        printf("Stack is empty.\n");
+        return;
+    }
 
-//paste your output here
+    printf("Stack elements are:\n");
 
-Result: Thus, the program to display stack elements using linked list is verified successfully.
+    while (p != NULL)
+    {
+        printf("%d\n", p->data);
+        p = p->next;
+    }
+}
 
-EXP.NO 27: C PROGRAM TO POP AN ELEMENT FROM THE GIVEN STACK USING LINKED LIST. Aim: To write a C program to pop an element from the given stack using liked list.
+int main()
+{
+    struct Node *p1, *p2, *p3;
 
-Algorithm:
+    p1 = (struct Node *)malloc(sizeof(struct Node));
+    p2 = (struct Node *)malloc(sizeof(struct Node));
+    p3 = (struct Node *)malloc(sizeof(struct Node));
 
-Check for Empty Stack
-If head is equal to NULL, Print "Stack is empty."
-Else Proceed to the next step.
-Set head to point to the next node in the stack.
-Program:
+    p1->data = 30;
+    p1->next = p2;
 
-//type your code here
+    p2->data = 20;
+    p2->next = p3;
 
-Output:
+    p3->data = 10;
+    p3->next = NULL;
 
-//paste your output here
+    head = p1;
 
-Result: Thus, the program to pop an element from the given stack using liked list is verified successfully.
+    display();
 
-EXP NO:28 C PROGRAM TO DISPLAY QUEUE ELEMENTS USING LINKED LIST. Aim: To write a C program to display queue elements using linked list. Algorithm:
+    free(p1);
+    free(p2);
+    free(p3);
 
-Check if Queue is Empty
-Display Queue Elements
-Print the data of the current node pointed to by front
-Update front to point to the next node.
-End the display function.
-Program:
-
-//type your code here
-
-Output:
-
-//paste your output here
-
-Result: Thus, the program to display queue elements using linked list is verified successfully.
-
-EXP NO:29 C PROGRAM TO INSERT ELEMENTS IN QUEUE USING LINKED LIST
-
-Aim: To write a C program to insert elements in queue using linked list
-
-Algorithm:
-
-Allocate Memory for New Node
-Set Data and Next Pointer
-Check if Queue is Empty
-Set both front and rear to point to the new node p.
-Set the next pointer of the current rear to point to the new node p.
-End of Enqueue Operation
-Program:
-
-//type your code here
-
-Output:
-
-//paste your output here
-
-Result: Thus, the program to insert elements in queue using linked list is verified successfully.
-
-EXP NO:30 C FUNCTION TO FIND THE PEEK OF QUEUE USING LINKED LIST.
-
-Aim:
-
-The aim of this function is to retrieve the "peek" (the front element) of a queue implemented using a linked list
-
-Algorithm:
-
-Check if the queue is empty: o If the queue is empty (i.e., the front pointer is NULL), return an error or a message indicating that the queue is empty.
-Access the front element: o If the queue is not empty, return the data stored in the front node of the linked list (i.e., the element at the head of the queue).
-Program:
-
-//type your code here
-
-Output:
-
-//paste your output here
-
-Result:
-
-Thus, the program to retrieve the "peek" (the front element) of a queue implemented using a linked list is verified successfully.
+    return 0;
+}
 ```
 
 Output:
@@ -125,7 +83,6 @@ Stack elements are:
 20
 10
 ```
-
 
 Result:
 Thus, the program to display stack elements using linked list is verified successfully. 
